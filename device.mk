@@ -393,6 +393,10 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-service \
     thermal.msmnile
 
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service.device
+
 # WiFi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
