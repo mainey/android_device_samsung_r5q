@@ -23,4 +23,10 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-# Placeholder
+on boot
+    # Fingerprint
+    chown system system /sys/class/lcd/panel/finger_mask_mode
+    chown system system /sys/class/lcd/panel/mask_brightness
+
+    # TSP
+    chown system system /sys/class/sec/tsp/cmd
