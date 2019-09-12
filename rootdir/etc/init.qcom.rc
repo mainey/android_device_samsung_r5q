@@ -41,5 +41,9 @@ service loggy /system/bin/sh /system/etc/init/loggy.sh
     oneshot
 
 on boot
+    # Fingerprint
+    chown system system /sys/class/lcd/panel/finger_mask_mode
+    chown system system /sys/class/lcd/panel/mask_brightness
+
 service seh-light-hal-3-0 /system/bin/true
     disabled
