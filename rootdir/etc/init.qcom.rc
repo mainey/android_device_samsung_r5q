@@ -32,3 +32,8 @@ on init
 
     # Flashlight
     chown system system /sys/class/camera/flash/rear_flash
+
+on boot
+    # Fingerprint
+    chown system system /sys/class/lcd/panel/finger_mask_mode
+    chown system system /sys/class/lcd/panel/mask_brightness

@@ -39,6 +39,9 @@ TARGET_NO_BOOTLOADER := true
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
+# HIDL
+DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
+
 # Kernel
 TARGET_KERNEL_ARCH := arm64 
 TARGET_KERNEL_SOURCE := kernel/samsung/r5q

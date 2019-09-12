@@ -1,0 +1,2 @@
+# Sec Touchscreen
+genfscon sysfs /sys/devices/virtual/sec/sec_key/hall_detect    u:object_r:sysfs_sec_touchscreen:s0
