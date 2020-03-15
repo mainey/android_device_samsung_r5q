@@ -1,0 +1,26 @@
+# ant
+lib64/libantradio.so
+lib64/com.qualcomm.qti.ant@1.0.so
+lib/libantradio.so
+lib/com.qualcomm.qti.ant@1.0.so
+
+# aptX - crosshatch-user 10 QQ3A.200805.001 6578210
+product/lib64/libaptX_encoder.so
+
+# Hotword
+-product/priv-app/HotwordEnrollmentXGoogleExWCD9340/HotwordEnrollmentXGoogleExWCD9340.apk;PRESIGNED
+-product/priv-app/HotwordEnrollmentOKGoogleExWCD9340/HotwordEnrollmentOKGoogleExWCD9340.apk;PRESIGNED
+
+# NFC
+etc/nfcee_access.xml
+etc/nfc_key
+
+# Radio
+product/lib64/vendor.qti.imsrtpservice@2.0.so
+product/lib64/vendor.qti.imsrtpservice@2.1.so
+
+# QTI
+etc/permissions/com.qualcomm.qti.imscmservice.xml
+etc/permissions/privapp-permissions-qti.xml
+etc/permissions/qti_telephony_hidl_wrapper.xml
+etc/sysconfig/qti_whitelist.xml
