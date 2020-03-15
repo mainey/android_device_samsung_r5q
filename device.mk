@@ -41,6 +41,10 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.qcom.rc
 
+# Keylayout
+PRODUCT_COPY_FILES += \
+    device/samsung/r5q/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/gpio-keys.kl
+
 # Recovery
 PRODUCT_PACKAGES += \
     fastbootd \
