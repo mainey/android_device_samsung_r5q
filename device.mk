@@ -31,6 +31,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fastbootd
 
+# Keylayout
+PRODUCT_COPY_FILES += \
+    device/samsung/r5q/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/gpio-keys.kl
 
 # Telephony
 PRODUCT_PACKAGES += \
