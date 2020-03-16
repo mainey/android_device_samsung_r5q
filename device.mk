@@ -52,3 +52,6 @@ PRODUCT_BOOT_JARS += \
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
+
+# call the proprietary setup
+$(call inherit-product, vendor/samsung/r5q/r5q-vendor.mk)
