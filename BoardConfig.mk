@@ -119,3 +119,6 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
+
+# inherit from the proprietary version
+-include vendor/samsung/r5q/BoardConfigVendor.mk
