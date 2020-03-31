@@ -1,0 +1,26 @@
+ro.product_ship=true
+# Detect DS/SS
+import /mnt/vendor/efs/factory.prop
+debug.sf.latch_unsignaled=1
+vendor.qcom.bluetooth.soc=cherokee
+vendor.qcom.bluetooth.soc=cherokee
+persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
+persist.vendor.bt.aac_frm_ctl.enabled=true
+bt.max.hfpclient.connections=1
+persist.vendor.cne.feature=1
+media.stagefright.enable-player=true
+media.stagefright.enable-http=true
+media.stagefright.enable-aac=true
+media.stagefright.enable-qcp=true
+media.stagefright.enable-fma2dp=true
+media.stagefright.enable-scan=true
+media.stagefright.thumbnail.prefer_hw_codecs=true
+mmp.enable.3g2=true
+media.aac_51_output_enabled=true
+mm.enable.smoothstreaming=true
+vendor.mm.enable.qcom_parser=63963135
+persist.mm.enable.prefetch=true
+ro.netflix.bsp_rev=Q855-16947-1
+persist.vendor.radio.atfwd.start=true
+persist.vendor.radio.enableadvancedscan=true
+use.voice.path.for.pcm.voip=true
