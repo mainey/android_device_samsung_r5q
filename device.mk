@@ -39,7 +39,8 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_PACKAGES += \
-    init.qcom.rc
+    init.qcom.rc \
+    loggy.sh
 
 # Keylayout
 PRODUCT_COPY_FILES += \
