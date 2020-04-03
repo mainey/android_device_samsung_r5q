@@ -29,6 +29,10 @@ DEVICE_PACKAGE_OVERLAYS += \
 # No A/B
 AB_OTA_UPDATER := false
 
+# Audio 
+PRODUCT_PACKAGES += \
+    audio.a2dp.default
+
 # Camera
 PRODUCT_PACKAGES += \
     Snap
