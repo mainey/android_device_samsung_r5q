@@ -33,3 +33,7 @@ service loggy /system/bin/sh /system/etc/init/loggy.sh
     class main
     user root
     oneshot
+
+on boot
+service seh-light-hal-3-0 /system/bin/true
+    disabled

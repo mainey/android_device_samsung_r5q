@@ -45,6 +45,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.qcom.rc \
     loggy.sh
+    
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service.r5q
 
 # Keylayout
 PRODUCT_COPY_FILES += \
@@ -52,7 +56,7 @@ PRODUCT_COPY_FILES += \
 
 # Telephony
 PRODUCT_PACKAGES += \
-    telephony-ext \
+    telephony-ext
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
