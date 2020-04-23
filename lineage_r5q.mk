@@ -21,8 +21,12 @@ PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-G770F
 PRODUCT_MANUFACTURER := samsung
 
-PRODUCT_AAPT_CONFIG := xxxhdpi
+# Screen density
+# Device uses high-density artwork where available
+PRODUCT_AAPT_CONFIG := xlarge
 PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
+# A list of dpis to select prebuilt apk, in precedence order.
+PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2400
