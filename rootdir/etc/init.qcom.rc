@@ -27,6 +27,9 @@ on init
     # Disable Encryption TEMP
     mount none /system/etc/fstab.qcom /vendor/etc/fstab.qcom bind
 
+    # Disable vendor overlay
+    mount none /vendor/lost+found /vendor/overlay bind
+
 on fs 
 # Loggy
 service loggy /system/bin/sh /system/etc/init/loggy.sh
