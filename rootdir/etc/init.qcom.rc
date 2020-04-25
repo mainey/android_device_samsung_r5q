@@ -29,3 +29,6 @@ on init
     chown system system /sys/class/backlight/panel0-backlight/max_brightness
     chmod 0660 /sys/class/backlight/panel0-backlight/brightness
     chmod 0660 /sys/class/backlight/panel0-backlight/max_brightness
+
+    # Flashlight
+    chown system system /sys/class/camera/flash/rear_flash
