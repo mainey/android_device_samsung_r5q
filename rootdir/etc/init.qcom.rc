@@ -30,6 +30,9 @@ on init
     # Disable vendor overlay
     mount none /vendor/lost+found /vendor/overlay bind
 
+    # Flashlight
+    chown system system /sys/class/camera/flash/rear_flash 
+
 on fs 
 # Loggy
 service loggy /system/bin/sh /system/etc/init/loggy.sh
