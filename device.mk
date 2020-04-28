@@ -68,6 +68,13 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
     com.android.nfc_extras
+	
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.2-service.r5q
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/power/config/msmnile/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 # Telephony
 PRODUCT_PACKAGES += \
