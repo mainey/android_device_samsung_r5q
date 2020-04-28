@@ -281,13 +281,23 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/media/media_profiles_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml \
     $(DEVICE_PATH)/configs/media/system_properties.xml:$(TARGET_COPY_OUT_VENDOR)/etc/system_properties.xml
 
-# NFC
+# Net
 PRODUCT_PACKAGES += \
-    libnfc-nci \
-    libnfc_nci_jni \
+    netutils-wrapper-1.0
+
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
+    com.gsma.services.nfc \
+    com.nxp.nfc.nq \
+    nfc_nci.nqx.default.hw \
     NfcNci \
     Tag \
-    com.android.nfc_extras
+    vendor.nxp.hardware.nfc@1.2-service
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nxp_RF.conf:$(TARGET_COPY_OUT_VENDOR)/etc/nfc/libnfc-nxp_RF.conf
 	
 # OMX
 PRODUCT_PACKAGES += \
