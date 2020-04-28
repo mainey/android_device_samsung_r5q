@@ -18,7 +18,7 @@ PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_BUILD_PRODUCT_IMAGE := true
 
 # Properties
--include $(LOCAL_PATH)/product_prop.mk
+-include $(LOCAL_PATH)/vendor_prop.mk
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # Overlays
