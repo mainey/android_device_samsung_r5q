@@ -53,6 +53,7 @@ TARGET_NO_BOOTLOADER := true
 # HIDL
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Kernel
 TARGET_KERNEL_ARCH := arm64 
