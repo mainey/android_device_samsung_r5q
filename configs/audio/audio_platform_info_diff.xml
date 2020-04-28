@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Copyright (c) 2014, 2016-2017, The Linux Foundation. All rights reserved. -->
+<!--                                                                        -->
+<!-- Redistribution and use in source and binary forms, with or without     -->
+<!-- modification, are permitted provided that the following conditions are -->
+<!-- met:                                                                   -->
+<!--     * Redistributions of source code must retain the above copyright   -->
+<!--       notice, this list of conditions and the following disclaimer.    -->
+<!--     * Redistributions in binary form must reproduce the above          -->
+<!--       copyright notice, this list of conditions and the following      -->
+<!--       disclaimer in the documentation and/or other materials provided  -->
+<!--       with the distribution.                                           -->
+<!--     * Neither the name of The Linux Foundation nor the names of its    -->
+<!--       contributors may be used to endorse or promote products derived  -->
+<!--       from this software without specific prior written permission.    -->
+<!--                                                                        -->
+<!-- THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED           -->
+<!-- WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF   -->
+<!-- MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT -->
+<!-- ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS -->
+<!-- BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR -->
+<!-- CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF   -->
+<!-- SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR        -->
+<!-- BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,  -->
+<!-- OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN -->
+<!-- IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                          -->
+<audio_platform_info>
+    <acdb_ids>
+        <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_BT_SCO" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_BT_SCO_WB" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_CALL_SPEAKER" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_CALL_SPEAKER_EVS" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_CALL_DEX_SPEAKER" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_CALL_DEX_SPEAKER_EVS" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_SPEAKER" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_SPEAKER_EVS" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_DEX_SPEAKER" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_DEX_SPEAKER_EVS" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_VOIP_COMM_SPEAKER" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_VOIP_COMM_DEX_SPEAKER" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_VOIP_FMC_SPEAKER" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_VOIP_FMC_DEX_SPEAKER" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_FM_SPEAKER" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_CALL_SPEAKER_EX" acdb_id="72"/>
+        <device name="SND_DEVICE_OUT_CALL_SPEAKER_EX_EVS" acdb_id="72"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_SPEAKER_EX" acdb_id="72"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_SPEAKER_EX_EVS" acdb_id="72"/>
+    </acdb_ids>
+   <backend_names>
+        <!-- System S/W Team Guide                                                      -->
+
+        <!--   update 'handset' interface name to SLIMBUS_0_RX                       -->
+        <!--   update 'speaker' interface name to SEC_MI2S_RX                           -->
+        <!--   update 'bt-sco & bt-sco-wb' interface name to SLIMBUS_7_RX(TX)           -->
+        <!--   update 'usb-headset-mic' interface name to USB_AUDIO_TX                  -->
+        <!--   update 'usb-headset & usb-headphones' interface name to USB_AUDIO_RX     -->
+        <!--   update 'in_capture_fm' interface name to SLIMBUS_8_TX                    -->
+        <!--   update 'in_capture_vi_feedback' interface name to SEC_MI2S_TX            -->
+        <!--   update 'usb-headset & usb-headphones' interface name to USB_AUDIO_RX     -->
+
+        <!--   maintain QC-device such as 'display_port'                                -->
+        <!--   to the same interface name with current status.                          -->
+
+        <!--   maintain 'bt-a2dp' to the same interface name with current status.       -->
+        <!--   because it is not used.                                                  -->
+
+        <!--   all the rest devices except the device described above use SLIMBUS_0_RX   -->
+
+        <device name="SND_DEVICE_OUT_HANDSET" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_HANDSET" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_HANDSET_EVS" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_HANDSET_HAC" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_HANDSET_HAC_EVS" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_HANDSET_EX" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_HANDSET_EX_EVS" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_HANDSET" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_HANDSET_EVS" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_HANDSET_EX" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_HANDSET_EX_EVS" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_HANDSET_HAC" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_HANDSET_HAC_EVS" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_TTY_HANDSET" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_TTY_HANDSET_EX" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_TTY_HANDSET" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_TTY_HANDSET_EX" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_VOIP_COMM_HANDSET" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_VOIP_COMM_HANDSET_HAC" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_VOIP_FMC_HANDSET" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_VOIP_FMC_HANDSET_HAC" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_LOOPBACK_HANDSET" interface="SLIMBUS_0_RX"/>
+        <device name="SND_DEVICE_OUT_LOOPBACK_HANDSET_DUAL_MIC" interface="SLIMBUS_0_RX"/>
+
+        <device name="SND_DEVICE_OUT_SPEAKER" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_CALIBRATION" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_SPEAKER2" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_SPEAKER" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_SPEAKER_EVS" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_SPEAKER_EX" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_SPEAKER_EX_EVS" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_DEX_SPEAKER" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_DEX_SPEAKER_EVS" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_SPEAKER" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_SPEAKER_EVS" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_SPEAKER_EX" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_SPEAKER_EX_EVS" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_DEX_SPEAKER" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_DEX_SPEAKER_EVS" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_VOIP_COMM_SPEAKER" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_VOIP_COMM_DEX_SPEAKER" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_VOIP_FMC_SPEAKER" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_VOIP_FMC_DEX_SPEAKER" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_LOOPBACK_SPEAKER" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_LOOPBACK_SPEAKER2" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_FM_SPEAKER" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_KARAOKE" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_PROTECTED" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_VBAT" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT" interface="SEC_MI2S_RX"/>
+
+        <device name="SND_DEVICE_OUT_HEADPHONES" backend="headphones" interface=""/>
+        <device name="SND_DEVICE_OUT_CALL_HEADSET" backend="headphones" interface=""/>
+        <device name="SND_DEVICE_OUT_CALL_HEADSET_EVS" backend="headphones" interface=""/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_HEADSET" backend="headphones" interface=""/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_HEADSET_EVS" backend="headphones" interface=""/>
+        <device name="SND_DEVICE_OUT_CALL_TTY_HEADSET" backend="headphones" interface=""/>
+        <device name="SND_DEVICE_OUT_CALL_TTY_FULL" backend="headphones" interface=""/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_TTY_HEADSET" backend="headphones" interface=""/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_TTY_FULL" backend="headphones" interface=""/>
+        <device name="SND_DEVICE_OUT_VOIP_COMM_HEADSET" backend="headphones" interface=""/>
+        <device name="SND_DEVICE_OUT_VOIP_FMC_HEADSET" backend="headphones" interface=""/>
+        <device name="SND_DEVICE_OUT_LOOPBACK_HEADSET" backend="headphones" interface=""/>
+        <device name="SND_DEVICE_OUT_LOOPBACK_HEADSET_DUAL_MIC" backend="headphones" interface=""/>
+        <device name="SND_DEVICE_OUT_FM_HEADSET" backend="headphones" interface=""/>
+        <device name="SND_DEVICE_OUT_HEADSET_KARAOKE" backend="headphones" interface=""/>
+        <device name="SND_DEVICE_OUT_HEADPHONES_KARAOKE" backend="headphones" interface=""/>
+
+        <device name="SND_DEVICE_OUT_BT_HEADSET" backend="bt-sco" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_BT_HEADSET_NREC" backend="bt-sco" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_BT_HEADSET" backend="bt-sco" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_BT_HEADSET_EVS" backend="bt-sco" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_BT_HEADSET_NREC" backend="bt-sco" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_BT_HEADSET_NREC_EVS" backend="bt-sco" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_BT_HEADSET" backend="bt-sco" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_BT_HEADSET_EVS" backend="bt-sco" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_BT_HEADSET_NREC" backend="bt-sco" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_BT_HEADSET_NREC_EVS" backend="bt-sco" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_VOIP_COMM_BT_HEADSET" backend="bt-sco" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_VOIP_COMM_BT_HEADSET_NREC" backend="bt-sco" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_VOIP_FMC_BT_HEADSET" backend="bt-sco" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_VOIP_FMC_BT_HEADSET_NREC" backend="bt-sco" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_REALTIMELOOPBACK_BT" backend="bt-sco" interface="SLIMBUS_7_RX"/>
+
+        <device name="SND_DEVICE_OUT_BT_HEADSET_16K" backend="bt-sco-wb" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_BT_HEADSET_NREC_16K" backend="bt-sco-wb" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_BT_HEADSET_16K" backend="bt-sco-wb" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_BT_HEADSET_16K_EVS" backend="bt-sco-wb" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_BT_HEADSET_NREC_16K" backend="bt-sco-wb" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_CALL_BT_HEADSET_NREC_16K_EVS" backend="bt-sco-wb" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_BT_HEADSET_16K" backend="bt-sco-wb" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_BT_HEADSET_16K_EVS" backend="bt-sco-wb" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_BT_HEADSET_NREC_16K" backend="bt-sco-wb" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_WIFI_CALL_BT_HEADSET_NREC_16K_EVS" backend="bt-sco-wb" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_VOIP_COMM_BT_HEADSET_16K" backend="bt-sco-wb" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_VOIP_COMM_BT_HEADSET_NREC_16K" backend="bt-sco-wb" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_VOIP_FMC_BT_HEADSET_16K" backend="bt-sco-wb" interface="SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_VOIP_FMC_BT_HEADSET_NREC_16K" backend="bt-sco-wb" interface="SLIMBUS_7_RX"/>
+
+        <device name="SND_DEVICE_OUT_BT_A2DP" backend="bt-a2dp" interface="SLIMBUS_7_RX"/>
+
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES" backend="speaker-and-headphones" interface="SEC_MI2S_RX"/>		
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_BT_SCO" backend="speaker-and-bt-sco" interface="SEC_MI2S_RX-and-SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_BT_SCO_WB" backend="speaker-and-bt-sco-wb" interface="SEC_MI2S_RX-and-SLIMBUS_7_RX"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_HDMI" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_DISPLAY_PORT" backend="speaker-and-display-port" interface="SEC_MI2S_RX-and-DISPLAY_PORT"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_PROXY" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_DOCK" backend="speaker" interface="SEC_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_USB_HEADSET" backend="speaker-and-usb-headphones" interface="SEC_MI2S_RX-and-USB_AUDIO_RX"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_BT_A2DP" backend="speaker-and-bt-a2dp" interface="SEC_MI2S_RX-and-SLIMBUS_7_RX"/>
+
+        <device name="SND_DEVICE_IN_REC_HEADSET_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_REC_HEADSET_MIC_JAM" interface=""/>
+        <device name="SND_DEVICE_IN_VR_HEADSET_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_BARGEIN1_HEADPHONE_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_BARGEIN1_HEADSET_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_BARGEIN2_HEADPHONE_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_BARGEIN2_HEADSET_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_CALL_HEADPHONE_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_CALL_HEADPHONE_MIC_EVS" interface=""/>
+        <device name="SND_DEVICE_IN_CALL_HEADSET_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_CALL_HEADSET_MIC_EVS" interface=""/>
+        <device name="SND_DEVICE_IN_CALL_USB_HEADPHONE_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_CALL_USB_HEADPHONE_MIC_EVS" interface=""/>
+        <device name="SND_DEVICE_IN_WIFI_CALL_HEADPHONE_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_WIFI_CALL_HEADPHONE_MIC_EVS" interface=""/>
+        <device name="SND_DEVICE_IN_WIFI_CALL_HEADSET_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_WIFI_CALL_HEADSET_MIC_EVS" interface=""/>
+        <device name="SND_DEVICE_IN_WIFI_CALL_USB_HEADPHONE_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_WIFI_CALL_USB_HEADPHONE_MIC_EVS" interface=""/>
+        <device name="SND_DEVICE_IN_CALL_TTY_HEADSET_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_CALL_TTY_VCO_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_CALL_TTY_FULL_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_WIFI_CALL_TTY_HEADSET_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_WIFI_CALL_TTY_VCO_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_WIFI_CALL_TTY_FULL_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_VOIP_COMM_HEADPHONE_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_VOIP_COMM_HEADSET_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_VOIP_COMM_USB_HEADPHONE_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_VOIP_FMC_HEADPHONE_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_VOIP_FMC_HEADSET_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_VOIP_FMC_USB_HEADPHONE_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_LOOPBACK_HEADPHONE_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_LOOPBACK_HEADSET_MIC" interface=""/>
+        <device name="SND_DEVICE_IN_HEADSET_MIC_KARAOKE" interface=""/>
+        <device name="SND_DEVICE_IN_HEADPHONE_MIC_KARAOKE" interface=""/>
+
+        <device name="SND_DEVICE_IN_REC_BT_MIC" backend="bt-sco" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_REC_BT_MIC_NREC" backend="bt-sco" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_VR_BT_MIC" backend="bt-sco" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_VR_BT_MIC_NREC" backend="bt-sco" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_CALL_BT_MIC" backend="bt-sco" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_CALL_BT_MIC_EVS" backend="bt-sco" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_CALL_BT_MIC_NREC" backend="bt-sco" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_CALL_BT_MIC_NREC_EVS" backend="bt-sco" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_WIFI_CALL_BT_MIC" backend="bt-sco" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_WIFI_CALL_BT_MIC_EVS" backend="bt-sco" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_WIFI_CALL_BT_MIC_NREC" backend="bt-sco" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_WIFI_CALL_BT_MIC_NREC_EVS" backend="bt-sco" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_VOIP_COMM_BT_MIC" backend="bt-sco" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_VOIP_COMM_BT_MIC_NREC" backend="bt-sco" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_VOIP_FMC_BT_MIC" backend="bt-sco" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_VOIP_FMC_BT_MIC_NREC" backend="bt-sco" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_REALTIMELOOPBACK_BT_MIC" backend="bt-sco" interface="SLIMBUS_7_TX"/>
+
+        <device name="SND_DEVICE_IN_REC_BT_MIC_16K" backend="bt-sco-wb" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_REC_BT_MIC_NREC_16K" backend="bt-sco-wb" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_VR_BT_MIC_16K" backend="bt-sco-wb" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_VR_BT_MIC_NREC_16K" backend="bt-sco-wb" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_CALL_BT_MIC_16K" backend="bt-sco-wb" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_CALL_BT_MIC_16K_EVS" backend="bt-sco-wb" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_CALL_BT_MIC_NREC_16K" backend="bt-sco-wb" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_CALL_BT_MIC_NREC_16K_EVS" backend="bt-sco-wb" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_WIFI_CALL_BT_MIC_16K" backend="bt-sco-wb" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_WIFI_CALL_BT_MIC_16K_EVS" backend="bt-sco-wb" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_WIFI_CALL_BT_MIC_NREC_16K" backend="bt-sco-wb" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_WIFI_CALL_BT_MIC_NREC_16K_EVS" backend="bt-sco-wb" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_VOIP_COMM_BT_MIC_16K" backend="bt-sco-wb" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_VOIP_COMM_BT_MIC_NREC_16K" backend="bt-sco-wb" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_VOIP_FMC_BT_MIC_16K" backend="bt-sco-wb" interface="SLIMBUS_7_TX"/>
+        <device name="SND_DEVICE_IN_VOIP_FMC_BT_MIC_NREC_16K" backend="bt-sco-wb" interface="SLIMBUS_7_TX"/>
+
+        <device name="SND_DEVICE_IN_FM_INPUT" backend="usb-headset-mic" interface=""/>
+        <device name="SND_DEVICE_IN_CAPTURE_FM" backend="capture-fm" interface="SLIMBUS_8_TX"/>
+        <device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK" interface="SEC_MI2S_TX"/>
+
+        <device name="SND_DEVICE_IN_CAMCORDER_MULTI_MIC" interface="SLIMBUS_0_TX"/>
+    </backend_names>
+    <pcm_ids>
+        <usecase name="USECASE_AUDIO_SPKR_CALIB_TX" type="in" id="1"/>
+    </pcm_ids>
+</audio_platform_info>
