@@ -1,0 +1,218 @@
+# Copyright (c) 2013-2018, The Linux Foundation. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#     * Neither the name of The Linux Foundation nor the names of its
+#       contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+#
+import /vendor/etc/init/init.sensors.spu.rc
+
+on boot
+# SSWAP
+    write /proc/sys/vm/swappiness 145
+
+on fs
+# SPU Partition
+    wait /dev/block/bootdevice/by-name/spu
+        mount ext4 /dev/block/bootdevice/by-name/spu /spu nosuid nodev noatime noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic
+
+on post-fs-data
+# setup cgroup freezer
+    mkdir /dev/freezer
+    mount cgroup none /dev/freezer freezer
+
+#olaf dex2oat freezer
+    mkdir /dev/freezer/olaf
+    write /dev/freezer/olaf/freezer.state THAWED
+    chown system system /dev/freezer/olaf
+    chown system system /dev/freezer/olaf/tasks
+    chown system system /dev/freezer/olaf/cgroup.procs
+    chown system system /dev/freezer/olaf/freezer.state
+    chmod 0644 /dev/freezer/olaf/tasks
+    chmod 0644 /dev/freezer/olaf/cgroup.procs
+    chmod 0644 /dev/freezer/olaf/freezer.state
+
+
+# Access permission for wdsp state
+    chown system audio /sys/class/audio/codec/wdsp_check_count
+    chown system audio /sys/class/audio/codec/wdsp_check_delay
+    chown system audio /sys/class/audio/codec/wdsp_state
+
+# TAS2562 Amp
+    chown system audio /sys/class/tas25xx/calib/calibration
+    chown system audio /sys/class/tas25xx/calib/cstatus
+    chown system audio /sys/class/tas25xx/calib/rdc
+    chown system audio /sys/class/tas25xx/calib/temp
+    chown system audio /sys/class/tas25xx/bigdata/exc_max
+    chown system audio /sys/class/tas25xx/bigdata/exc_max_persist
+    chown system audio /sys/class/tas25xx/bigdata/exc_over_count
+    chown system audio /sys/class/tas25xx/bigdata/temp_max
+    chown system audio /sys/class/tas25xx/bigdata/temp_max_persist
+    chown system audio /sys/class/tas25xx/bigdata/temp_over_count
+    chown system audio /sys/class/tas25xx/valid/status
+    chown system audio /sys/class/tas25xx/valid/validation
+    mkdir /efs/tas25xx 0770 audioserver audio
+    chown audioserver audio /efs/tas25xx/calib_re
+    chown audioserver audio /efs/tas25xx/amb_temp
+    chmod 0660 /efs/tas25xx/calib_re
+    chmod 0660 /efs/tas25xx/amb_temp
+
+# Samsung Pay
+    mkdir /efs/pfw_data 0760 vendor_spay vendor_spay
+
+# MST/NFC Switch
+    chown vendor_spay system /dev/mst_ctrl
+    chmod 0660 /dev/mst_ctrl
+
+# setup cgroup freezer for freecess
+    mkdir /dev/freezer
+    mount cgroup none /dev/freezer freezer
+    mkdir /dev/freezer/frozen
+    mkdir /dev/freezer/thaw
+    write /dev/freezer/frozen/freezer.state FROZEN
+    write /dev/freezer/thaw/freezer.state THAWED
+
+# MARs for freecess
+    chown system system /dev/freezer
+    chown system system /dev/freezer/frozen
+    chown system system /dev/freezer/frozen/tasks
+    chown system system /dev/freezer/frozen/cgroup.procs
+    chown system system /dev/freezer/frozen/freezer.state
+    chown system system /dev/freezer/thaw
+    chown system system /dev/freezer/thaw/tasks
+    chown system system /dev/freezer/thaw/cgroup.procs
+
+# MARs for freecess
+    chmod 0644 /dev/freezer/frozen/tasks
+    chmod 0644 /dev/freezer/frozen/cgroup.procs
+    chmod 0644 /dev/freezer/frozen/freezer.state
+    chmod 0644 /dev/freezer/thaw/tasks
+    chmod 0644 /dev/freezer/thaw/cgroup.procs
+
+service vendor.adsprpcd /vendor/bin/adsprpcd
+   class main
+   user media
+   group media
+
+service vendor.adsprpcd_audiopd /vendor/bin/adsprpcd audiopd
+   class main
+   user media
+   group media
+
+on post-fs
+
+on property:vendor.peripheral.SDXPRAIRIE.state=ONLINE
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/CODERAM.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/DATARAM.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/DCC_SRAM.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/DDRCS0.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/FSM_CTRL.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/FSM_STS.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/IPA_GSI.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/IPA_HRAM.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/IPA_IU.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/IPA_MBOX.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/IPA_SEQ.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/IPA_SRAM.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/MSGRAM.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/MSGRAM0.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/MSGRAM1.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/MSGRAM2.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/MSGRAM3.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/MSGRAM4.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/MSGRAM5.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/MSGRAM6.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/MSGRAM7.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/OCIMEM.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/PBUS_LOG.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/PMIC_PON.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/PMON_HIS.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/RST_STAT.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/SHRM_MEM.BIN
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/Summary.txt
+    chown system shell /data/vendor/tombstones/SDXPRAIRIE/load.cmm
+
+    chmod 0771 /data/vendor/tombstones/SDXPRAIRIE
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/CODERAM.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/DATARAM.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/DCC_SRAM.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/DDRCS0.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/FSM_CTRL.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/FSM_STS.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/IPA_GSI.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/IPA_HRAM.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/IPA_IU.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/IPA_MBOX.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/IPA_SEQ.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/IPA_SRAM.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/MSGRAM.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/MSGRAM0.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/MSGRAM1.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/MSGRAM2.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/MSGRAM3.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/MSGRAM4.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/MSGRAM5.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/MSGRAM6.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/MSGRAM7.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/OCIMEM.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/PBUS_LOG.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/PMIC_PON.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/PMON_HIS.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/RST_STAT.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/SHRM_MEM.BIN
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/Summary.txt
+    chmod 0660 /data/vendor/tombstones/SDXPRAIRIE/load.cmm
+
+# SSWAP
+service swapon /sbin/sswap -s -z -f 2560
+    class core
+    user root
+    group root
+    seclabel u:r:sswap:s0
+    oneshot
+
+# Pageboostd
+on property:sys.boot_completed=1
+    start pageboostd
+    start vramdiskd
+
+service pageboostd /system/bin/pageboostd
+    class main
+    user system
+    group system
+    socket pageboostd seqpacket 0660 system system
+    disabled
+
+service vramdiskd /system/bin/vramdiskd
+    class core
+    user system
+    group system install
+    capabilities SYS_RESOURCE
+    socket vramdiskd seqpacket 0660 system system
+    disabled
+
+# Create carrier folder for HiddenMenu
+on post-fs
+    mkdir /efs/carrier 0755 system system
