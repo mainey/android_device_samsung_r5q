@@ -1,32 +1,3 @@
-<!--
-    Input:
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        manifest.xml
-        skeymaster_v4_manifest.xml
-        radio_manifest_ds.xml
-        radio_manifest_ds.xml
-        manifest_chip.xml
-        manifest.xml
-        manifest.xml
--->
 <manifest version="1.0" type="device" target-level="4">
     <hal format="hidl">
         <name>android.hardware.audio</name>
@@ -261,10 +232,6 @@
             <instance>default</instance>
         </interface>
         <fqname>@1.0::IPower/default</fqname>
-    </hal>
-    <hal format="hidl" override="true">
-        <name>android.hardware.radio</name>
-        <transport>hwbinder</transport>
     </hal>
     <hal format="hidl" override="true">
         <name>android.hardware.radio</name>
@@ -921,7 +888,4 @@
         </interface>
         <fqname>@2.0::ISehSupplicant/default</fqname>
     </hal>
-    <sepolicy>
-        <version>29.0</version>
-    </sepolicy>
 </manifest>
