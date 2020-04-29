@@ -14,10 +14,11 @@
 // limitations under the License.
 
 cc_binary {
+    vendor: true,
     relative_install_path: "hw",
     defaults: ["hidl_defaults"],
-    name: "lineage.biometrics.fingerprint.inscreen@1.0-service.r5q",
-    init_rc: ["lineage.biometrics.fingerprint.inscreen@1.0-service.r5q.rc"],
+    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.r5q",
+    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.r5q.rc"],
     srcs: ["service.cpp", "FingerprintInscreen.cpp"],
     shared_libs: [
         "libbase",
