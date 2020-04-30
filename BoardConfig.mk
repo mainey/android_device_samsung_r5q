@@ -8,6 +8,7 @@ BUILD_BROKEN_DUP_RULES := true
 
 BOARD_VENDOR := samsung
 DEVICE_PATH := device/samsung/r5q
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 # Architecture
 TARGET_ARCH := arm64
