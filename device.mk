@@ -32,6 +32,10 @@ PRODUCT_PACKAGE_OVERLAYS += \
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
     $(DEVICE_PATH)/overlay-lineage/lineage-sdk
 
+# Audio
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PLATFORM_VNDK_VERSION)/etc/audio_policy_configuration.xml
+
 # Fingerprint feature
 PRODUCT_PACKAGES += \
     lineage.biometrics.fingerprint.inscreen@1.0-service.r5q
