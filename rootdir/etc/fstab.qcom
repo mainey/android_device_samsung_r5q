@@ -45,6 +45,7 @@ odm                                                     /odm                   e
 /dev/block/platform/soc/1d84000.ufshc/by-name/optics    /optics                ext4    ro,barrier=1,discard                                 nofail,avb,first_stage_mount
 /dev/block/platform/soc/1d84000.ufshc/by-name/metadata  /metadata              ext4    noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic                         wait,first_stage_mount,formattable
 /dev/block/bootdevice/by-name/userdata	/data	f2fs	noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678	latemount,wait,check,fileencryption=ice,quota,reservedsize=128M,checkpoint=fs
+/dev/block/bootdevice/by-name/boot                      /boot                  emmc    defaults                                             defaults
 
 # Need to have this entry in here even though the mount point itself is no longer needed.
 # The update_engine code looks for this entry in order to determine the boot device address
