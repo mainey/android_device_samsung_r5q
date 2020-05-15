@@ -99,7 +99,8 @@ BOARD_ROOT_EXTRA_FOLDERS := \
 	metadata \
 	optics \
 	prism \
-	spu
+	spu \
+	omr
 
 # Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true

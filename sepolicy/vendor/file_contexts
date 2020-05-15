@@ -5,3 +5,4 @@
 /optics(/.*)?    u:object_r:vendor_file:s0
 /prism(/.*)?    u:object_r:system_file:s0
 /spu(/.*)?    u:object_r:spu_file:s0
+/omr(/.*)?    u:object_r:omr_file:s0
