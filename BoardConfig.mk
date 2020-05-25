@@ -39,6 +39,9 @@ TARGET_NO_BOOTLOADER := true
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
+# FOD
+TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.r5q
+
 # HIDL
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 
