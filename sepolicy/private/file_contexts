@@ -2,7 +2,7 @@
 /(product|system/product)/vendor_overlay/[0-9]+/bin/hw/android\.hardware\.light@2\.0-service\.r5q    u:object_r:hal_light_default_exec:s0
 
 # Inscreen Fingerprint HAL
-/(product|system/product)/vendor_overlay/[0-9]+/bin/hw/vendor\.lineage\.biometrics\.fingerprint\.inscreen@1.1-service\.r5q    u:object_r:hal_fingerprint_inscreen_sm8150_exec:s0
+/(product|system/product)/vendor_overlay/[0-9]+/bin/hw/vendor\.lineage\.biometrics\.fingerprint\.inscreen@1.0-service\.r5q    u:object_r:hal_fingerprint_inscreen_sm8150_exec:s0
 
 # Vendor overlay
 /(product|system/product)/vendor_overlay/[0-9]+/etc(/.*)?    u:object_r:vendor_configs_file:s0
