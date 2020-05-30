@@ -3,3 +3,6 @@ genfscon sysfs /sys/devices/virtual/sec/sec_key/hall_detect    u:object_r:sysfs_
 
 # Flashlight
 genfscon sysfs /sys/class/camera/flash/rear_flash    u:object_r:sysfs_camera_writable:s0
+
+# Fingerprint
+genfscon sysfs /sys/class/lcd/panel/mask_brightness    u:object_r:sysfs_lcd_writable:s0

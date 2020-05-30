@@ -1,3 +1,4 @@
 type sysfs_sec_touchscreen, sysfs_type, fs_type;
 type sysfs_health, sysfs_type, fs_type;
 type sysfs_camera_writable, sysfs_type, fs_type;
+type sysfs_lcd_writable, sysfs_type, fs_type;
