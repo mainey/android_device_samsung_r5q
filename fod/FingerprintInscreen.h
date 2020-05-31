@@ -17,7 +17,6 @@
 #define VENDOR_LINEAGE_BIOMETRICS_FINGERPRINT_INSCREEN_V1_0_FINGERPRINTINSCREEN_H
 
 #include <vendor/lineage/biometrics/fingerprint/inscreen/1.0/IFingerprintInscreen.h>
-#include <vendor/samsung/hardware/biometrics/fingerprint/3.0/ISehBiometricsFingerprint.h>
 
 namespace vendor {
 namespace lineage {
@@ -31,7 +30,6 @@ using ::android::sp;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
 using ::android::hardware::hidl_vec;
-using ::vendor::samsung::hardware::biometrics::fingerprint::V3_0::ISehBiometricsFingerprint;
 
 class FingerprintInscreen : public IFingerprintInscreen {
   public:
@@ -52,14 +50,13 @@ class FingerprintInscreen : public IFingerprintInscreen {
     Return<int32_t> getPositionX() override;
     Return<int32_t> getPositionY() override;
     Return<int32_t> getSize() override;
+    Return<void> request(int32_t cmd_id, int32_t inParam);
 
   private:
-    sp<ISehBiometricsFingerprint> mSehBiometricsFingerprintService;
     std::mutex mCallbackLock;
     sp<IFingerprintInscreenCallback> mCallback;
     std::string mPreviousBrightness;
-
-    static void requestResult(int retval, const hidl_vec<int8_t>& outBuf);
+    int (*ss_fingerprint_request)(int32_t cmd_id, const int8_t* inputBuf, uint32_t value, int8_t* outBuf, uint32_t inParam);
 };
 
 }  // namespace implementation

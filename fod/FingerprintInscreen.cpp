@@ -22,6 +22,7 @@
 #include <fstream>
 #include <cmath>
 #include <thread>
+#include <dlfcn.h>
 
 #define FINGERPRINT_ACQUIRED_VENDOR 6
 
@@ -72,12 +73,42 @@ static hidl_vec<int8_t> stringToVec(const std::string& str) {
 }
 
 FingerprintInscreen::FingerprintInscreen() {
-    mSehBiometricsFingerprintService = ISehBiometricsFingerprint::getService();
     set(MASK_BRIGHTNESS_PATH, "319");
+    void* handle = dlopen("libbauthserver.so", RTLD_NOW);
+    if (handle) { 
+        ss_fingerprint_request = reinterpret_cast<typeof(ss_fingerprint_request)>(
+		    dlsym(handle, "ss_fingerprint_request"));
+    } else {
+        LOG(ERROR) << "Can't open HAL module";
+    }
 }
 
-void FingerprintInscreen::requestResult(int, const hidl_vec<int8_t>&) {
-    // Ignore all results
+Return<void> FingerprintInscreen::request(int32_t cmd_id, int32_t inParam) {
+    size_t inputSize = 0;		
+    int32_t len = 0;
+    const hidl_vec<int8_t>& inputBuf = stringToVec(SEM_AOSP_FQNAME);
+
+    for (; inputBuf[inputSize] != '\0'; ++inputSize);
+
+    int8_t input[inputSize + 1];		
+    int8_t output[len];
+				
+    for (size_t i = 0; i < inputSize; ++i) {		
+        input[i] = inputBuf[i];		
+    }		
+    input[inputSize] = '\0';		
+    for (size_t i = 0; i < static_cast<size_t>(len); ++i) {		
+        output[i] = '\0';		
+    }
+
+    LOG(ERROR) << "request(cmd_id=" << cmd_id << ", inParam=" << inParam		
+            << ", inputBuf=" << input << ")";
+
+    ss_fingerprint_request(cmd_id, input, 0, len == 0 ? nullptr : output, inParam);
+
+    auto outBuf = hidl_vec<int8_t>();
+    outBuf.setToExternal(output, len);
+    return Void();
 }
 
 Return<void> FingerprintInscreen::onStartEnroll() {
@@ -92,15 +123,13 @@ Return<void> FingerprintInscreen::onPress() {
     set(FP_GREEN_CIRCLE, "1");
     std::thread([this]() {
         std::this_thread::sleep_for(std::chrono::milliseconds(76));
-        mSehBiometricsFingerprintService->sehRequest(SEM_FINGER_STATE, 
-            SEM_PARAM_PRESSED, stringToVec(SEM_AOSP_FQNAME), FingerprintInscreen::requestResult);
+        FingerprintInscreen::request(SEM_FINGER_STATE, SEM_PARAM_RELEASED);
     }).detach();
     return Void();
 }
 
 Return<void> FingerprintInscreen::onRelease() {
-    mSehBiometricsFingerprintService->sehRequest(SEM_FINGER_STATE, 
-        SEM_PARAM_RELEASED, stringToVec(SEM_AOSP_FQNAME), FingerprintInscreen::requestResult);
+    FingerprintInscreen::request(SEM_FINGER_STATE, SEM_PARAM_RELEASED);
     set(FP_GREEN_CIRCLE, "0");
     return Void();
 }
