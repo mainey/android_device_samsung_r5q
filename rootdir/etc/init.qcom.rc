@@ -23,6 +23,11 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+on init
+    # Vibrator
+    chown system system /sys/class/timed_output/vibrator/enable
+    chown system system /sys/class/timed_output/vibrator/intensity
+
 on early-boot
     mount none /system/lib64/libperfmgr.so /vendor/lib64/libperfmgr.so bind
 
@@ -35,6 +40,6 @@ on boot
 
     # Power Hal
     chown system system /sys/class/sec/tsp/input/enabled
-    
+
     # TSP
     chown system system /sys/class/sec/tsp/cmd
