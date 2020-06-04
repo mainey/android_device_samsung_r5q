@@ -159,6 +159,7 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 2
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
