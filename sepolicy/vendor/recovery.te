@@ -1,0 +1,4 @@
+# Set fastbootd to permissive
+recovery_only(`
+    permissive fastbootd;
+')
