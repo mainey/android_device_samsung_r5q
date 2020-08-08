@@ -76,6 +76,7 @@ FingerprintInscreen::FingerprintInscreen() {
     mSehBiometricsFingerprintService = ISehBiometricsFingerprint::getService();
     set(TSP_CMD_PATH, "set_fod_rect,426,1989,654,2217");
     set(MASK_BRIGHTNESS_PATH, "319");
+    set(TSP_CMD_PATH, "fod_enable,1,1,0");
 }
 
 void FingerprintInscreen::requestResult(int, const hidl_vec<int8_t>&) {
@@ -112,12 +113,10 @@ Return<void> FingerprintInscreen::onShowFODView() {
         std::this_thread::sleep_for(std::chrono::milliseconds(15));
         set(FOD_DIMMING_PATH, "1");
     }).detach();
-    set(TSP_CMD_PATH, "fod_enable,1,1,0");
     return Void();
 }
 
 Return<void> FingerprintInscreen::onHideFODView() {
-    set(TSP_CMD_PATH, "fod_enable,0");
     set(FP_GREEN_CIRCLE, "0");
     set(FOD_DIMMING_PATH, "0");
     return Void();
