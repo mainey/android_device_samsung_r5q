@@ -23,6 +23,9 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+on early-boot
+    mount none /system/lib64/libperfmgr.so /vendor/lib64/libperfmgr.so bind
+
 on boot
     # Fingerprint
     chown system system /sys/class/lcd/panel/mask_brightness
@@ -30,5 +33,8 @@ on boot
     chmod 0644 /sys/class/lcd/panel/mask_brightness
     chmod 0644 /sys/class/backlight/panel0-backlight/brightness
 
+    # Power Hal
+    chown system system /sys/class/sec/tsp/input/enabled
+    
     # TSP
     chown system system /sys/class/sec/tsp/cmd

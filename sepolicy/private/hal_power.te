@@ -1,0 +1,4 @@
+allow hal_power latency_device:chr_file rw_file_perms;
+allow hal_power sysfs_kgsl:file rw_file_perms;
+allow hal_power sysfs_devfreq:file rw_file_perms;
+allow hal_power sysfs_sec_touchscreen:file rw_file_perms;

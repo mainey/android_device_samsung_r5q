@@ -971,4 +971,7 @@
 
     <!-- Specifies whether to decouple the interactive state of the device from the display on/off state. -->
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
+
+    <!-- Whether device supports double tap to wake -->
+    <bool name="config_supportDoubleTapWake">true</bool>
 </resources>
