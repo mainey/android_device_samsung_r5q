@@ -1,0 +1,20 @@
+type hal_lineage_livedisplay_qti, coredomain, domain;
+hal_server_domain(hal_lineage_livedisplay_qti, hal_lineage_livedisplay)
+
+type hal_lineage_livedisplay_qti_exec, exec_type, system_file_type, file_type;
+init_daemon_domain(hal_lineage_livedisplay_qti)
+
+type hal_display_color_hwservice, hwservice_manager_type;
+allow hal_lineage_livedisplay_qti hal_display_color_hwservice:hwservice_manager find;
+
+type hal_display_color_default, domain;
+binder_call(hal_lineage_livedisplay_qti, hal_display_color_default)
+binder_use(hal_lineage_livedisplay_qti)
+
+allow hal_lineage_livedisplay_qti sysfs_lcd_writable:dir search;
+allow hal_lineage_livedisplay_qti sysfs_lcd_writable:file rw_file_perms;
+
+allow hal_lineage_livedisplay_qti sysfs_mdnie_writable:dir search;
+allow hal_lineage_livedisplay_qti sysfs_mdnie_writable:file rw_file_perms;
+
+allow hal_lineage_livedisplay_qti vendor_data_file:file read;

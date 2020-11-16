@@ -1,8 +1,15 @@
+# Livedisplay
+/system/bin/hw/lineage\.livedisplay@2\.0-service\.samsung-qcom             u:object_r:hal_lineage_livedisplay_qti_exec:s0
+/data/vendor/display/\.displaymodedefault                                  u:object_r:livedisplay_data_file:s0
+
 # Power-libperfmgr HAL
 /(product|system/product)/vendor_overlay/[0-9]+/bin/hw/android\.hardware\.power@1\.3-service\.samsung-libperfmgr    u:object_r:hal_power_default_exec:s0
 
 # Inscreen Fingerprint HAL
 /system/bin/hw/lineage\.biometrics\.fingerprint\.inscreen@1\.0-service\.r5q     u:object_r:hal_fingerprint_inscreen_sm8150_exec:s0
+
+# MDNIE
+/sys/devices/virtual/mdnie(/.*)?                            --  u:object_r:sysfs_mdnie_writable:s0
 
 # Power Supply
 /sys/devices/platform/soc/890000.i2c/i2c-0(/.*)?    u:object_r:sysfs_battery_supply:s0

@@ -23,6 +23,13 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+on init
+    # LiveDisplay
+    chown system system /sys/class/lcd/panel/power_reduce
+    chmod 0660 /sys/class/lcd/panel/power_reduce
+    chown system system /sys/class/mdnie/mdnie/mode
+    chown system system /sys/class/mdnie/mdnie/mode_max
+
 on post-fs-data
     # NFC: create /efs/sec_efs/nfc and /efs/nfc for nv storage
     mkdir /efs/sec_efs/nfc 0700 nfc nfc

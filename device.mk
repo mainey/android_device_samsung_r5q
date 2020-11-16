@@ -59,6 +59,10 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.qcom.rc
 
+# LiveDisplay
+PRODUCT_PACKAGES += \
+    lineage.livedisplay@2.0-service.samsung-qcom
+
 # Keylayout
 PRODUCT_COPY_FILES += \
     device/samsung/r5q/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/gpio-keys.kl
