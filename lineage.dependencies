@@ -1,0 +1,10 @@
+[
+    {
+        "repository": "android_kernel_samsung_r5q",
+        "target_path": "device/kernel/r5q"
+    },
+    {
+        "repository": "android_device_samsung_sm8150-common",
+        "target_path": "device/samsung/sm8150-common"
+    }
+]
