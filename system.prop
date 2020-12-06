@@ -11,6 +11,7 @@ persist.vendor.cne.feature=1
 
 # Detect DS/SS
 import /mnt/vendor/efs/factory.prop
+import /mnt/vendor/efs/telephony.prop
 
 # Display
 debug.sf.latch_unsignaled=1
