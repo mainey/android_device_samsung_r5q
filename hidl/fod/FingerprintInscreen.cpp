@@ -22,6 +22,7 @@
 #include <hidl/HidlTransportSupport.h>
 
 #include <fstream>
+#include <thread>
 
 namespace vendor {
 namespace lineage {
@@ -74,24 +75,61 @@ static T get(const std::string& path, const T& def) {
     }
 }
 
+static hidl_vec<int8_t> stringToVec(const std::string& str) {
+    auto vec = hidl_vec<int8_t>();
+    vec.resize(str.size() + 1);
+    for (size_t i = 0; i < str.size(); ++i) {
+        vec[i] = (int8_t) str[i];
+    }
+    vec[str.size()] = '\0';
+    return vec;
+}
+
+void FingerprintInscreen::requestResult(int, const hidl_vec<int8_t>&) { }
+
 FingerprintInscreen::FingerprintInscreen() {
+    mSehBiometricsFingerprintService = ISehBiometricsFingerprint::getService();
 #ifdef FOD_SET_RECT
     set(TSP_CMD_PATH, FOD_SET_RECT);
 #endif
     set(TSP_CMD_PATH, FOD_ENABLE);
+    set(MASK_BRIGHTNESS_PATH, FOD_MASK);
 }
 
 Return<void> FingerprintInscreen::onStartEnroll() { return Void(); }
 
 Return<void> FingerprintInscreen::onFinishEnroll() { return Void(); }
 
-Return<void> FingerprintInscreen::onPress() { return Void(); }
+Return<void> FingerprintInscreen::onPress() { 
+    set(FP_GREEN_CIRCLE, "1");
+    std::thread([this]() {
+        std::this_thread::sleep_for(std::chrono::milliseconds(36));
+        mSehBiometricsFingerprintService->sehRequest(SEM_FINGER_STATE, 
+            SEM_PARAM_PRESSED, stringToVec(SEM_AOSP_FQNAME), FingerprintInscreen::requestResult);
+    }).detach();
+    return Void(); 
+}
 
-Return<void> FingerprintInscreen::onRelease() { return Void(); }
+Return<void> FingerprintInscreen::onRelease() { 
+    mSehBiometricsFingerprintService->sehRequest(SEM_FINGER_STATE, 
+        SEM_PARAM_RELEASED, stringToVec(SEM_AOSP_FQNAME), FingerprintInscreen::requestResult);
+    set(FP_GREEN_CIRCLE, "0");
+    return Void(); 
+}
 
-Return<void> FingerprintInscreen::onShowFODView() { return Void(); }
+Return<void> FingerprintInscreen::onShowFODView() { 
+    std::thread([]() {
+        std::this_thread::sleep_for(std::chrono::milliseconds(16));
+        set(FOD_DIMMING_PATH, "1");
+    }).detach();
+    return Void(); 
+}
 
-Return<void> FingerprintInscreen::onHideFODView() { return Void(); }
+Return<void> FingerprintInscreen::onHideFODView() { 
+    set(FP_GREEN_CIRCLE, "0");
+    set(FOD_DIMMING_PATH, "0");
+    return Void(); 
+}
 
 Return<bool> FingerprintInscreen::handleAcquired(int32_t acquiredInfo, int32_t vendorCode) {
     std::lock_guard<std::mutex> _lock(mCallbackLock);

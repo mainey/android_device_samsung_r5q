@@ -7,5 +7,8 @@ init_daemon_domain(hal_fingerprint_inscreen_sm8150)
 # binder_call(hal_fingerprint_inscreen_sm8150, hal_fingerprint_default)
 hal_client_domain(hal_fingerprint_inscreen_sm8150, hal_fingerprint)
 
+allow hal_fingerprint_inscreen_sm8150 sysfs_lcd_writable:dir r_dir_perms;
+allow hal_fingerprint_inscreen_sm8150 sysfs_lcd_writable:file rw_file_perms;
+
 allow hal_fingerprint_inscreen_sm8150 sysfs_sec_touchscreen:dir r_dir_perms;
 allow hal_fingerprint_inscreen_sm8150 sysfs_sec_touchscreen:file rw_file_perms;
