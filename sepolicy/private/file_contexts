@@ -1,0 +1,2 @@
+# Inscreen Fingerprint HAL
+/system/bin/hw/lineage\.biometrics\.fingerprint\.inscreen@1\.0-service\.r5q     u:object_r:hal_fingerprint_inscreen_sm8150_exec:s0
