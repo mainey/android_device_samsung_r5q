@@ -1,3 +1,11 @@
+on boot
+    chown system system /sys/class/lcd/panel/fod_dimming
+    chown system system /sys/class/lcd/panel/fp_green_circle
+    chown system system /sys/class/lcd/panel/mask_brightness
+    chmod 0644 /sys/class/lcd/panel/fod_dimming
+    chmod 0644 /sys/class/lcd/panel/fp_green_circle
+    chmod 0644 /sys/class/lcd/panel/mask_brightness
+
 service fingerprint-inscreen-1-0 /system/bin/hw/lineage.biometrics.fingerprint.inscreen@1.0-service.r5q
     interface vendor.lineage.biometrics.fingerprint.inscreen@1.0::IFingerprintInscreen default
     class hal
